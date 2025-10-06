@@ -1,0 +1,15 @@
+audio:
+  model_name: "models/wav2vec2-large-xlsr-53"
+  min_samples: 16000 #16000 = (1s at 16kHz) which is the input size for the model.
+  pkl_folder: "media/embeddings/audio"
+
+video:
+  model_name: "Searchium-ai/clip4clip-webvid150k"
+  processor_name: "models/clipBit"
+  pkl_folder: "media/embeddings/video"
+  frame_rate: 1 # How many frames per second to extract.
+  size: 224 # Size of the frames for the model.
+
+text:
+  model_name: "sentence-transformers/paraphrase-MiniLM-L6-v2"
+  pkl_folder: "media/embeddings/text"

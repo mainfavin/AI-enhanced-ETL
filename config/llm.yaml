@@ -1,0 +1,16 @@
+API_TYPE: "ollama"
+temperature: 0.7
+max_tokens: 500
+timeout: 30
+max_retries: 3
+num_frames: 5
+video_method: "fast" #or anything else
+MODEL_NAME: "llama3"
+
+#temperature: 0
+#DEPLOYMENT_MODEL_NAME: "gpt-4o-mini-dt-intership" # Nombre del despliegue en Azure
+#MODEL_NAME: "gpt-4o"  # Nombre del modelo lógico
+#max_tokens: 1024
+#API_TYPE: "azure"
+#OPENAI_API_VERSION: "2024-08-01-preview"  # Ajustar versión según el endpoint
+#OPENAI_API_BASE: "https://cog-openai-dt-internships.openai.azure.com/"  # Base del endpoint sin incluir el path de deployment

@@ -1,0 +1,22 @@
+qdrant:
+  connection_config:
+    host: "localhost"  
+    port: 6333
+    api_key: null 
+  parameters:
+    collection_name: "COL_COSMOS"
+    distance: "Cosine"
+
+embeddings:
+  embeddings_dir: "media/embeddings/multip/video_cosmos1"
+  vector_types:
+    audio:
+      size: 1024  
+    video:
+      size: 512 
+to_run:
+   
+    - "video"
+    - "audio"
+pipelines_config: "config/pipeline.yaml"
+llm_config: "config/llm.yaml"
