@@ -1,27 +1,27 @@
-# 🧠 Multimedia Processing Pipeline
+# Multimedia Processing Pipeline
 
-Este repositorio contiene un sistema modular para procesar contenido multimedia (audio, vídeo, texto), generar embeddings, dividir clips, transcribir, describir y almacenar vectores en una base de datos vectorial (Qdrant). Fue diseñado para ser usado tanto de forma manual como a través de un **asistente conversacional**, facilitando que usuarios sin conocimientos técnicos puedan configurar el sistema.
-
----
-
-## 🚀 ¿Qué hace este repositorio?
-
-- Divide archivos de audio y vídeo en clips según configuraciones definidas.
-- Genera descripciones automáticas de contenido (audio, imagen, vídeo) usando modelos LLM.
-- Transcribe audio a texto.
-- Genera embeddings para audio, vídeo y texto con modelos preentrenados.
-- Almacena los vectores en Qdrant para búsquedas vectoriales.
-- Permite una configuración personalizada mediante YAMLs.
+This repository contains a modular system for processing multimedia content (audio, video, text), generating embeddings, splitting clips, transcribing, describing, and storing vectors in a vector database (Qdrant). It was designed to be used both manually and through a **conversational assistant**, allowing non-technical users to configure the system easily.
 
 ---
 
-## 🛠 ¿Cómo se usa?
+## What does this repository do?
 
-### 1. Configuración
-Debes definir los parámetros de ejecución en los siguientes archivos de configuración, ubicados en la carpeta `config/`.
+- Splits audio and video files into clips based on defined configurations.
+- Automatically generates content descriptions (audio, image, video) using LLM models.
+- Transcribes audio to text.
+- Generates embeddings for audio, video, and text using pre-trained models.
+- Stores vectors in Qdrant for vector search.
+- Allows custom configuration via YAML files.
 
-- `pipeline.yaml`: Configuración general (entrada/salida, secciones activas, rutas a otros YAMLs).
-- `embedding_generator_config.yaml`: Define modelos y parámetros para la generación de embeddings.
-- `audio_splitter_config.yaml` y `video_splitter_config.yaml`: Controlan la división de clips.
-- `audio_transcriber_config.yaml`: Define el modelo de transcripción.
-- `describer_config.yaml`: Configura prompts y modelo para descripción automática del contenido.
+---
+
+## How to use it
+
+### 1. Configuration
+
+You must define execution parameters in the configuration files located in the `config/` folder.
+
+- `pipeline.yaml`: General configuration (input/output, active sections, paths to other YAMLs).
+- `embedding_generator_config.yaml`: Defines models and parameters for embedding generation.
+- `audio_splitter_config.yaml` and `video_splitter_config.yaml`: Control how clips are split.
+- `audio_transcriber_config.yaml`: Defines the transcription model.
