@@ -1,0 +1,38 @@
+audio:
+  audios_dir: media/audios
+  clips_dir: media/clips/audio
+  embeddings_dir: media/embeddings/multip
+  audio_path: media/videos/topGear2.webm
+  vector_name: Audio
+  config:
+    parameters: null
+video:
+  videos_dir: media/videos
+  clips_dir: media/clips/video
+  embeddings_dir: media/embeddings/multip
+  video_path: media/videos/topGear2.webm
+  vector_name: Video
+  config:
+    parameters:
+      type: .mp4
+text:
+  text_path: media/texts/Pompeya.pdf
+  texts_dir: media/texts
+  clips_dir: media/clips/text
+  embeddings_dir: media/embeddings/text
+  vector_name: Text
+  config:
+    parameters:
+      domain: educacion
+      language: es
+      author: Marcos
+    text_loader_config:
+      recursive: true
+      extract-images: false
+      extraction-mode: plain
+embedder_config: config/embedding_generator_config.yaml
+transcriber_config: config/audio_transcriber_config.yaml
+video_splitter_config: config/video_splitter_config.yaml
+audio_splitter_config: config/audio_splitter_config.yaml
+text_splitter_config: config/text_splitter_config.yaml
+describer_config: config/describer_config.yaml

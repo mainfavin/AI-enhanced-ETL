@@ -1,0 +1,21 @@
+
+media_path: "media/videos/video_cosmos1.mp4" 
+base_url: "http://localhost:11434/"
+
+prompt_video: "Estas imagenes forman parte de video, describe en base a lo que esta sucediendo en cada una de ellas lo que esta pasando en el video."
+prompt_imagen: "Por favor describeme que esta pasando en estas imagenes y luego comparamelas." 
+prompt_audio: "Eres un experto en análisis de contenido auditivo. Describe el contenido de esta transcripción:"
+prompt_resumen_1: "Eres un asistente experto en describir escenas visuales."
+prompt_resumen_2: "A continuación te doy varias descripciones de distintas partes de un video. Generá un resumen general claro y coherente de lo que sucede:"
+
+
+timeout: 30
+max_retries: 3
+temperature: 0
+MODEL_NAME: "llama3"  # Nombre del modelo lógico
+max_tokens: 512
+API_TYPE: "ollama"
+#OPENAI_API_VERSION: 
+#OPENAI_API_BASE: 
+
+llm_config: "config/llm.yaml"

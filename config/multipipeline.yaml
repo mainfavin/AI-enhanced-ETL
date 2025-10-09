@@ -1,0 +1,21 @@
+qdrant:
+  connection_config:
+    host: qdrant
+    port: 6333
+    api_key: null
+  parameters:
+    collection_name: COL_GEAR2
+    distance: Cosine
+embeddings:
+  embeddings_dir: media/embeddings/multip
+  vector_types:
+    audio:
+      size: 1024
+    video:
+      size: 512
+to_run:
+- video
+- audio
+media_path: media/videos/topGear2.webm
+pipelines_config: config/pipeline.yaml
+llm_config: config/llm.yaml

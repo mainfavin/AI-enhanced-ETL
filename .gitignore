@@ -1,0 +1,77 @@
+# =========================
+# 🔧 Python & Environment
+# =========================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.log
+*.tmp
+*.lock
+.pytest_cache/
+.env
+venv/
+venvo/
+
+# =========================
+# 🧠 Data & Models
+# =========================
+media/
+data/
+clips/
+videos/
+audios/
+test_embeddings/
+temp_audio.wav
+*.mp4
+*.wav
+*.webm
+*.avi
+*.flv
+*.mov
+*.wmv
+*.tiff
+
+# =========================
+# 🐳 Docker & Build Artifacts
+# =========================
+.docker/
+docker-compose.override.yml
+*.pid
+*.sock
+*.cache
+ollama/
+ollama_data/
+hf_cache/
+qdrant_data/
+etl_data/
+__build__/
+__dist__/
+
+# =========================
+# 💻 IDE / OS Files
+# =========================
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# =========================
+# 🧩 Misc
+# =========================
+node_modules/
+dist/
+target/
+requirements.txt
+requirements.lock
+main.py
+app_audio_trans.py
+apache/
+
+# =========================
+# ✅ Keep these
+# (core project files)
+# =========================
+!Dockerfile
+!docker-compose.yml
+!requirements_docker._
