@@ -1,22 +1,21 @@
 qdrant:
   connection_config:
-    host: "localhost"  
+    host: qdrant
     port: 6333
-    api_key: null 
+    api_key: null
   parameters:
-    collection_name: "COL_COSMOS"
-    distance: "Cosine"
-
+    collection_name: COL_GEAR2
+    distance: Cosine
 embeddings:
-  embeddings_dir: "media/embeddings/multip/video_cosmos1"
+  embeddings_dir: media/embeddings/multip
   vector_types:
     audio:
-      size: 1024  
+      size: 1024
     video:
-      size: 512 
+      size: 512
 to_run:
-   
-    - "video"
-    - "audio"
-pipelines_config: "config/pipeline.yaml"
-llm_config: "config/llm.yaml"
+- video
+- audio
+media_path: media/videos/topGear2.webm
+pipelines_config: config/pipeline.yaml
+llm_config: config/llm.yaml

@@ -7,9 +7,11 @@ Date: 2025-03-25
 
 import asyncio
 import os
+from pathlib import Path
 import pickle
 import torch
 import numpy as np
+import yaml
 from src.domain.config.config_loader import ConfigLoader
 from src.application.pipelines.text_pipeline import TextPipeline
 from src.application.pipelines.audio_pipeline import AudioPipeline
@@ -43,6 +45,7 @@ class MultiplePipeline:
             config_path (str): Path to the configuration YAML file.
         """
         self.__config = ConfigLoader.load_config(config_path)
+        self._sync_paths(config_path)
         self.vector_store_adapter = QdrantAdapter(config_path)
         self.llm_provider = OLLamaLLMProvider(self.__config["llm_config"])
         self.pipelines = self._create_pipelines()
@@ -84,8 +87,8 @@ class MultiplePipeline:
         - Runs the pipelines 
         - Processes and uploads the generated embeddings.
         """
-        await self._run_concurrent_pipelines()  
-        os.makedirs(self.__config["embeddings"]["embeddings_dir"], exist_ok=True)
+        #await self._run_concurrent_pipelines()  
+        #os.makedirs(self.__config["embeddings"]["embeddings_dir"], exist_ok=True)
         self.process_and_upload_embeddings()
 
     def process_and_upload_embeddings(self):
@@ -211,4 +214,32 @@ class MultiplePipeline:
 
         merged = {**promoted, **payload}
         return merged
+    
 
+    def _sync_paths(self, config_path: str):
+        """
+        Syncs media_path between multipipeline.yaml and pipeline.yaml.
+        Persists both changes to disk.
+        """
+        media_path = self.__config["media_path"]
+        video_name = Path(media_path).stem
+        pipeline_path = self.__config["pipelines_config"]
+
+        # --- embeddings_dir only in memory ---
+        base_dir = Path(self.__config["embeddings"]["embeddings_dir"])
+        self.__config["embeddings"]["embeddings_dir"] = (base_dir / video_name).as_posix()
+        os.makedirs(self.__config["embeddings"]["embeddings_dir"], exist_ok=True)
+
+        # --- pipeline.yaml: update routes and persist ---
+        with open(pipeline_path, "r", encoding="utf-8") as f:
+            pipe = yaml.safe_load(f)
+
+        for section in ("audio", "video"):
+            if section in pipe:
+                pipe[section][f"{section}_path"] = media_path
+
+        with open(pipeline_path, "w", encoding="utf-8") as f:
+            yaml.safe_dump(pipe, f, sort_keys=False)
+
+        print(f"🔄 media_path → {media_path}")
+        print(f"📂 embeddings_dir (solo memoria) → {self.__config['embeddings']['embeddings_dir']}")

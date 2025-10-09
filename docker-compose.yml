@@ -1,6 +1,7 @@
 services:
   etl:
     build: .
+    image: ai-enhanced-etl:py313
     container_name: etl_app
     volumes:
       - .:/app
@@ -15,7 +16,7 @@ services:
       - HF_HOME=/root/.cache/huggingface
       - OLLAMA_API=http://ollama_etl:11434
       - QDRANT_URL=http://qdrant:6333
-    restart: unless-stopped
+    restart: "no"
 
   ollama:
     image: ollama/ollama:latest
@@ -46,4 +47,3 @@ volumes:
   hf_cache:
   qdrant_data:
   ollama_data:
-  

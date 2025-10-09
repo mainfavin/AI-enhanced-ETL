@@ -64,3 +64,5 @@ __pycache__/
 ollama/
 apache/
 app_audio_trans.py
+requirements.txt
+requirements.lock
