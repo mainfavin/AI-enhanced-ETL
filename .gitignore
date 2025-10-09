@@ -61,8 +61,6 @@ main.py
 test_embeddings/
 .pytest_cache/
 __pycache__/
-docker-compose.yml
 ollama/
 apache/
-docker-compose.yml
 app_audio_trans.py

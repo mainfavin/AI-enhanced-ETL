@@ -50,7 +50,7 @@ class AudioEmbedder(EmbeddingGenerator):
         """
         super().__init__(config_path)
         self.feature_extractor = Wav2Vec2FeatureExtractor.from_pretrained(self._config["audio"]['model_name'])
-        self.model = Wav2Vec2Model.from_pretrained(self._config["audio"]['model_name'])
+        self.model = Wav2Vec2Model.from_pretrained(self._config["audio"]['processor_name'])
         self.min_length = self._config["audio"]["min_samples"]  # Minimum in samples (16000 = 1s at 16kHz)
 
     def get_embeddings(self, audio_path:str):

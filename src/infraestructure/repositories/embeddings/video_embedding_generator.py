@@ -41,7 +41,7 @@ class VideoEmbedder(EmbeddingGenerator):
 
         super().__init__(config_path)
 
-        self.model =     CLIPVisionModelWithProjection.from_pretrained('models/c4c')
+        self.model = CLIPVisionModelWithProjection.from_pretrained(self._config["video"]['model_name'])
         self.processor = CLIPProcessor.from_pretrained(self._config["video"]['processor_name'] )
 
         self.model_text = CLIPModel.from_pretrained(self._config["video"]['processor_name'] )

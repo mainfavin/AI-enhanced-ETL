@@ -2,7 +2,7 @@ audio:
   audios_dir: "media/audios"
   clips_dir: "media/clips/audio"
   embeddings_dir: "media/embeddings/multip"
-  audio_path: "media/videos/video_cosmos1.mp4"
+  audio_path: "media/videos/topGear.webm" #Change to your audio/video path
   vector_name: "Audio" 
   config: 
     parameters:
@@ -11,7 +11,7 @@ video:
   videos_dir: "media/videos"
   clips_dir: "media/clips/video"
   embeddings_dir: "media/embeddings/multip"
-  video_path: "media/videos/video_cosmos1.mp4"
+  video_path: "media/videos/topGear.webm" #Change to your video path
   vector_name: "Video"
   config: 
     parameters:

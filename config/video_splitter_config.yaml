@@ -1,6 +1,6 @@
 audio_codec: aac
 codec: libx264
-output_dir: media/clips/video\video_cosmos1
+output_dir: media/clips/video\topGear
 part_duration: 20
 remove_temp: true
 temp_audiofile: temp-audio.m4a

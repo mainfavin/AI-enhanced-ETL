@@ -1,0 +1,49 @@
+services:
+  etl:
+    build: .
+    container_name: etl_app
+    volumes:
+      - .:/app
+      - etl_data:/app/data
+      - hf_cache:/root/.cache/huggingface
+    working_dir: /app
+    command: python __main__.py
+    depends_on:
+      - ollama
+      - qdrant
+    environment:
+      - HF_HOME=/root/.cache/huggingface
+      - OLLAMA_API=http://ollama_etl:11434
+      - QDRANT_URL=http://qdrant:6333
+    restart: unless-stopped
+
+  ollama:
+    image: ollama/ollama:latest
+    container_name: ollama_etl
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - capabilities: [gpu]
+    restart: always
+
+  qdrant:
+    image: qdrant/qdrant:latest
+    container_name: qdrant
+    ports:
+      - "6333:6333" # API HTTP
+      - "6334:6334" # gRPC
+    volumes:
+      - qdrant_data:/qdrant/storage
+    restart: unless-stopped
+
+volumes:
+  etl_data:
+  hf_cache:
+  qdrant_data:
+  ollama_data:
+  

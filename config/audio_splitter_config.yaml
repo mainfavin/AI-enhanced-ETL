@@ -1,7 +1,7 @@
 clip_duration: 20000
 method: duration
 min_silence_len: 700
-output_dir: media/clips/audio\video_cosmos1
+output_dir: media/clips/audio\topGear
 remove_temp: true
 silence_thresh: -40
 temp_audio_path: temp_audio.wav
